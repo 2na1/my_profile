@@ -1,0 +1,10 @@
+.photoContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.photoItem {
+  flex-basis: calc(25% - 16px);
+  margin: 8px;
+}
