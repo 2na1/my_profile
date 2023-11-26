@@ -1,0 +1,28 @@
+.bookListContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  font-size: 18px;
+}
+
+.bookListContainer h1 {
+  font-size: 24px;
+}
+
+.bookListContainer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.bookListContainer li {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.bookListContainer input,
+.bookListContainer button {
+  font-size: 16px;
+  margin-right: 8px;
+}

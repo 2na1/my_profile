@@ -1,3 +1,29 @@
 .title {
-  font-size: 120px;
+  width: 700px;
+  height: 62px;
+  color: #fff;
+  font-family: Inter;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 30px;
+  margin-top: 350px;
+}
+
+.homeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: -100px;
 }

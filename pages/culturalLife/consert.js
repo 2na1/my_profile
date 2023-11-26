@@ -1,99 +1,97 @@
 import React, { useState } from "react";
 
-const Concert = () => {
-  const [tooltipInfo, setTooltipInfo] = useState(null);
+const ConcertImage = ({ alt, src, description }) => {
+  const [tooltipVisible, setTooltipVisible] = useState(false);
 
-  const handleMouseEnter = (alt) => {
-    setTooltipInfo(alt);
+  const handleMouseEnter = () => {
+    setTooltipVisible(true);
   };
 
   const handleMouseLeave = () => {
-    setTooltipInfo(null);
+    setTooltipVisible(false);
   };
 
   return (
-    <div>
-      <div
-        onMouseEnter={() => handleMouseEnter("pds")}
-        onMouseLeave={handleMouseLeave}
-        style={{ position: "relative", display: "inline-block" }}
-      >
-        <img
-          alt="pds"
-          src="path/to/pds.jpg"
-          style={{ width: "100px", height: "100px" }}
-        />
-        {tooltipInfo === "pds" && (
-          <div
-            style={{
-              position: "absolute",
-              top: "100%", // Position below the image
-              left: 0,
-              backgroundColor: "rgba(0, 0, 0, 0.8)",
-              color: "#fff",
-              padding: "8px",
-              borderRadius: "4px",
-            }}
-          >
-            <h4>please don't stop your singing</h4>
-            {/* 기타 이미지에 대한 정보를 표시하는 부분을 추가 */}
-          </div>
-        )}
-      </div>
-      <div
-        onMouseEnter={() => handleMouseEnter("BMF")}
-        onMouseLeave={handleMouseLeave}
-        style={{ position: "relative", display: "inline-block" }}
-      >
-        <img
-          alt="BMF"
-          src="path/to/BMF2022.jpg"
-          style={{ width: "100px", height: "100px" }}
-        />
-        {tooltipInfo === "BMF" && (
-          <div
-            style={{
-              position: "absolute",
-              top: "100%", // Position below the image
-              left: 0,
-              backgroundColor: "rgba(0, 0, 0, 0.8)",
-              color: "#fff",
-              padding: "8px",
-              borderRadius: "4px",
-            }}
-          >
-            <h4>BMF2022</h4>
-            {/* 기타 이미지에 대한 정보를 표시하는 부분을 추가 */}
-          </div>
-        )}
-      </div>
-      <div
-        onMouseEnter={() => handleMouseEnter("GMF2022")}
-        onMouseLeave={handleMouseLeave}
-        style={{ position: "relative", display: "inline-block" }}
-      >
-        <img
-          alt="GMF2022"
-          src="path/to/GMF2022.jpg"
-          style={{ width: "100px", height: "100px" }}
-        />
-        {tooltipInfo === "GMF2022" && (
-          <div
-            style={{
-              position: "absolute",
-              top: "100%", // Position below the image
-              left: 0,
-              backgroundColor: "rgba(0, 0, 0, 0.8)",
-              color: "#fff",
-              padding: "8px",
-              borderRadius: "4px",
-            }}
-          >
-            <h4>GMF2022</h4>
-            {/* 기타 이미지에 대한 정보를 표시하는 부분을 추가 */}
-          </div>
-        )}
-      </div>
+    <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        position: "relative",
+        display: "inline-block",
+        width: "calc(25% - 16px)", // 25% for four images in a row with 16px margin
+        marginTop: "50px",
+      }}
+    >
+      <img
+        alt={alt}
+        src={src}
+        style={{
+          width: "198px",
+          height: "352px",
+          objectFit: "cover",
+        }}
+      />
+      {tooltipVisible && (
+        <div
+          style={{
+            position: "absolute",
+            top: "100%",
+            left: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.8)",
+            color: "#fff",
+            padding: "8px",
+            borderRadius: "4px",
+          }}
+        >
+          <h4>{description}</h4>
+          {/* 추가 정보를 표시하는 부분 */}
+        </div>
+      )}
+    </div>
+  );
+};
+
+const Concert = () => {
+  const concertImages = [
+    {
+      alt: "pds",
+      src: "/images/consert/1.JPG",
+      description: "PDS",
+    },
+    {
+      alt: "GMF2022",
+      src: "/images/consert/2.JPG",
+      description: "selectShop",
+    },
+    { alt: "BMF", src: "/images/consert/3.JPG", description: "PerfectDay8" },
+    {
+      alt: "GMF2022",
+      src: "/images/consert/4.JPG",
+      description: "selectShop2",
+    },
+    { alt: "BMF", src: "/images/consert/5.JPG", description: "HAND" },
+    {
+      alt: "GMF2022",
+      src: "/images/consert/6.JPG",
+      description: "selcetShop3",
+    },
+    {
+      alt: "GMF2022",
+      src: "/images/consert/7.jpg",
+      description: "BMF2022",
+    },
+    {
+      alt: "GMF2022",
+      src: "/images/consert/8.jpg",
+      description: "TVT CLUB",
+    },
+  ];
+
+  return (
+    <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+      {concertImages.map((image) => (
+        <ConcertImage key={image.alt} {...image} />
+      ))}
     </div>
   );
 };

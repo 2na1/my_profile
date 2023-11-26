@@ -19,6 +19,7 @@ export default function Review() {
 
   return (
     <div>
+      <br />
       <h1>{id}</h1>
       {content}
     </div>

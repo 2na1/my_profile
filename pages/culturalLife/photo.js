@@ -9,8 +9,7 @@ const Photo = () => {
     setShowGallery(!showGallery);
     setSelectedFolder(folder);
 
-    // Dynamically load gallery images based on the selected folder
-    const numberOfImages = 12; // Adjust this value as needed
+    const numberOfImages = 12;
     const galleryImagePaths = Array.from(
       { length: numberOfImages },
       (_, index) => `/images/${folder}/${index + 1}.jpg`
@@ -18,7 +17,6 @@ const Photo = () => {
     setGalleryImages(galleryImagePaths);
   };
 
-  // Updated representative photo names and categories with folder structure
   const representativePhotos = [
     { name: "main_travel", category: "여행", folder: "travel" },
     { name: "main_daily", category: "일상", folder: "daily" },
@@ -29,9 +27,8 @@ const Photo = () => {
   const imagesPerRow = 3;
 
   return (
-    <div>
+    <div style={{ marginTop: "100px" }}>
       {showGallery ? (
-        // Render all images in the selected folder when showGallery is true
         <div style={{ display: "flex", flexWrap: "wrap" }}>
           {galleryImages.map((imagePath, index) => (
             <div
@@ -50,7 +47,6 @@ const Photo = () => {
           ))}
         </div>
       ) : (
-        // Render representative photos when showGallery is false
         <div style={{ display: "flex", flexWrap: "wrap" }}>
           {representativePhotos.map((photo) => (
             <div

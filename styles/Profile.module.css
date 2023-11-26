@@ -1,0 +1,36 @@
+/* Profile.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.Card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 638px;
+  height: 364px;
+  border-radius: 50px;
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cardImg {
+  width: 220px;
+  height: 220px;
+  flex-shrink: 0;
+}
+
+.Card h1,
+.Card p {
+  color: #f08302;
+}
+
+.emoji {
+  font-size: 80px;
+}
